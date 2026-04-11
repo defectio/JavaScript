@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 id="title">Javascript Basic Selector</h1>
+        <div class="container">
+            <ul id="list" class="list">
+                <li>li 1</li>
+                <li>li 2</li>
+                <li>li 3</li>
+                <li>li 4</li>
+                <li>li 5</li>
+            </ul>
+        </div>
+        <div class="container">
+            <ul id="list2" class="list">
+                <li>li 1</li>
+                <li>li 2</li>
+                <li>li 3</li>
+                <li>li 4</li>
+                <li>li 5</li>
+            </ul>
+        </div>
+        <div class="container">
+            <ul id="list3" class="list">
+                <li class="red" name="red">li 1</li>
+                <li>li 2</li>
+                <li>li 3</li>
+                <li>li 4</li>
+                <li id="list3_5">li 5</li>
+            </ul>
+        </div>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate mattis
+            maximus. Nulla eu purus dolor. Etiam et luctus quam, et finibus orci. Sed urna tellus,
+            vestibulum nec varius eu, posuere accumsan nisl. Fusce in ligula velit. Donec consequat,
+            arcu nec condimentum porta, ante purus vestibulum tellus, eget blandit erat nibh vitae
+            arcu. Phasellus quam metus, semper et metus euismod, semper suscipit quam. Suspendisse
+            sem tellus, tempus sit amet turpis sed, blandit aliquam massa. Nunc ut tincidunt ipsum,
+            id aliquet ligula. Pellentesque quis scelerisque est, dignissim pretium nulla. In hac
+            habitasse platea dictumst. Suspendisse potenti. Fusce tortor orci, pretium ac rutrum a,
+            aliquet sed mauris. Etiam commodo ligula et orci scelerisque, vitae interdum odio
+            vestibulum. In rutrum consequat eros at fermentum.
+        </p>
+        <p>
+            Quisque quis quam arcu. Donec sodales vel lectus quis faucibus. Nullam nec tempus eros,
+            vitae dictum ex. Vivamus a laoreet lorem. Nam feugiat leo at euismod sodales. Curabitur
+            iaculis velit eu orci sollicitudin, tempor aliquet ex semper. Proin consequat accumsan
+            felis, in lacinia dui volutpat sed. Suspendisse in feugiat arcu. Integer nec lacinia
+            massa.
+        </p>
+        <p>
+            Fusce aliquam, neque ut condimentum aliquet, justo ante sodales quam, at posuere purus
+            arcu vel arcu. Sed in porttitor enim. Nunc pellentesque, urna et vehicula commodo, arcu
+            metus efficitur ligula, eget tristique lacus nisl eu dolor. Mauris facilisis velit eget
+            suscipit hendrerit. Morbi et purus quis turpis pellentesque tempus quis scelerisque
+            
+            augue. Suspendisse ut posuere tellus, ut sodales metus. Nam vitae pellentesque neque.
+        </p>
+
+        <script>
+            /*
+            html 요소 선택하기
+            */
+
+            // 1. id
+            var firstTitle = document.getElementById('title');
+            //console.log(firstTitle);
+
+            // 2. class
+            var myList = document.getElementsByClassName('list');
+            // console.log(myList);
+
+            // 3. tag명
+            // console.log(document.body);
+            var paragraphs = document.getElementsByTagName('p');
+            // console.log(paragraphs);
+
+            // 4. css 선택자
+            var redList = document.querySelector('.list .red');
+            // console.log(redList);
+
+            /*
+            선택자로 지정한 요소의 style 변경하기
+        */
+            // 1 제목 속성 변경
+            firstTitle.style.color = 'red';
+
+            // 2. myList 중에서 첫번째 꺼를 없애자
+            // console.log(myList);
+            myList[0].style.display = 'none';
+
+            // 3. paragraph 글자 색상 blue로 변경
+            for (var i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.color = 'blue';
+            }
+            /*
+            paragraphs[0].style.color = 'blue';
+            paragraphs[1].style.color = 'blue';
+            paragraphs[2].style.color = 'blue';
+            paragraphs[3].style.color = 'blue';
+        */
+
+            // 왜 script로 html 요소를 선택해서 style을 변경할까?
+            // 단순 css로 안되는 경우가 있기 때문...클릭 이벤트, 마우스 이벤트, 스크롤 이벤트 등 동적 이벤트에 대한 스타일 변경
+        </script>
+
+        <!-- formatter 적용 : https://milenote.tistory.com/29 -->
+    </body>
+</html>

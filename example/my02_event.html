@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate mattis
+                maximus. Nulla eu purus dolor. Etiam et luctus quam, et finibus orci. Sed urna
+                tellus, vestibulum nec varius eu, posuere accumsan nisl. Fusce in ligula velit.
+                Donec consequat, arcu nec condimentum porta, ante purus vestibulum tellus, eget
+                blandit erat nibh vitae arcu. Phasellus quam metus, semper et metus euismod, semper
+                suscipit quam. Suspendisse sem tellus, tempus sit amet turpis sed, blandit aliquam
+                massa. Nunc ut tincidunt ipsum, id aliquet ligula. Pellentesque quis scelerisque
+                est, dignissim pretium nulla. In hac habitasse platea dictumst. Suspendisse potenti.
+                Fusce tortor orci, pretium ac rutrum a, aliquet sed mauris. Etiam commodo ligula et
+                orci scelerisque, vitae interdum odio vestibulum. In rutrum consequat eros at
+                fermentum.
+                <!-- 웹표준을 어김 : HTML(구조언어)에 자바스크립트(동적언어)가 섞여 있음 -->
+                <!-- <button id="submit" onclick="console.log('버튼이 클릭 되었습니다.')"> -->
+                <button id="submit">Click me</button>
+            </p>
+        </div>
+        <script>
+            var btn = document.getElementById('submit');
+
+            btn.addEventListener('click', function () {
+                btn.style.color = 'red';
+            });
+
+            var container = document.querySelector('.container');
+            // container.addEventListener('mouseenter', function () {
+            //     console.log('mouse in');
+            // });
+            // container.addEventListener('mouseleave', function () {
+            //     console.log('mouse out');
+            // });
+
+            // event 종류
+            // click, change, mouseover, mouseout, mouseenter, mouseleave
+            // focus, keydown, keyup, load, mousedown, mouseup, select
+            window.addEventListener('keydown', function (event) {
+                console.log(event.key);
+                console.log(event.keyCode);
+            });
+        </script>
+    </body>
+</html>
