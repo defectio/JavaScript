@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // JSON Parse() : JSON 형식의 문자열 -> 자바스크립트 객체로 변환
+            // str의 값은 JSON 형식의 문자열임. JSON은 아님.
+            // JSON.parse() 를 사용하여 JSON 형식의 문자열 -> 자바스크립트 객체로 변환해야, 요소에 접근가능
+            const str = '{"name" : "kim", "age" : 30}';
+            // console.log(str.name);  // undefined
+
+            const obj = JSON.parse(str);
+            console.log(obj);
+            console.log(obj.name);
+            console.log(obj.age);
+
+            // json 규칙
+            // 1. 문자열은 반드시 큰따옴표로 감싸야 한다.
+            // 2. 속성명도 반드시 큰따옴표로 감싸야 한다.
+            // 3. 마지막 요소 뒤에 쉼표를 사용하면 안된다.
+
+            // JSON.stringify() : JSON 형식의 문자열 -> 자바스크립트 객체로 변환
+            //Json.stringify() : 자바스크립트 객체 -> JSON 형식의 문자열로 변환
+            const jsonStr = JSON.stringify(obj);
+            console.log(jsonStr);
+
+            // 특정값만 반환
+            const jsonStr2 = JSON.stringify(obj, ['name']);
+            console.log(jsonStr2);
+
+            const jsonStr3 = JSON.stringify(obj, null, 2);
+            console.log(jsonStr3);
+
+            console.log(typeof obj); // object
+            console.log(typeof jsonStr); // string
+
+            // 안전하게 parsing 하기
+            const jsonStr4 = '{"name" : "kim", "age" : 30}';
+            try {
+                const obj2 = JSON.parse(jsonStr4);
+                console.log(obj2);
+            } catch (e) {
+                console.log('JSON parsing error:', e);
+            }
+
+            // 타입 체크 후 parsing
+            function getJsonObj(value) {
+                if (typeof value === 'string') {
+                    try {
+                        return JSON.parse(value);
+                    } catch (e) {
+                        console.error('JSON 파싱 실패', e);
+                        return null;
+                    }
+                }
+                return value; // 이미 객체면 그대로 반환
+            }
+
+            console.log(getJsonObj(jsonStr4)); // { name: 'kim', age: 30 }
+        </script>
+    </body>
+</html>
